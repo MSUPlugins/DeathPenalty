@@ -1,0 +1,21 @@
+name: DeathPenalty
+version: '${project.version}'
+main: vip.floatationdevice.msu.deathpenalty.DeathPenalty
+api-version: 1.13
+softdepend: [ Vault ]
+authors: [ MCUmbrella ]
+description: Deduct HP, food, XP, level and money after player respawn
+website: https://github.com/MSUPugins/DeathPenalty
+permissions:
+  deathpenalty.bypass.hp:
+    description: "Bypass HP deduction"
+    default: op
+  deathpenalty.bypass.food:
+    description: "Bypass food deduction"
+    default: op
+  deathpenalty.bypass.xp:
+    description: "Bypass XP and level deduction"
+    default: op
+  deathpenalty.bypass.money:
+    description: "Bypass money deduction"
+    default: op
