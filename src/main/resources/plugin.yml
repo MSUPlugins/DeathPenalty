@@ -1,11 +1,14 @@
 name: DeathPenalty
 version: '${project.version}'
+description: Deduct HP, food, XP, level and money after player respawn
+authors: [ MCUmbrella ]
+website: https://github.com/MSUPlugins/DeathPenalty
 main: vip.floatationdevice.msu.deathpenalty.DeathPenalty
 api-version: 1.13
-softdepend: [ Vault ]
-authors: [ MCUmbrella ]
-description: Deduct HP, food, XP, level and money after player respawn
-website: https://github.com/MSUPugins/DeathPenalty
+depend:
+  - MSUCore
+softdepend:
+  - Vault
 permissions:
   deathpenalty.bypass.hp:
     description: "Bypass HP deduction"

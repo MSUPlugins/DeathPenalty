@@ -6,7 +6,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerRespawnEvent;
 
-import static vip.floatationdevice.msu.deathpenalty.ConfigManager.*;
+import static vip.floatationdevice.msu.deathpenalty.DeathPenalty.cm;
 
 public class RespawnEventListener implements Listener
 {
@@ -19,23 +19,23 @@ public class RespawnEventListener implements Listener
             @Override
             public void run()
             {
-                if(setHp && !p.hasPermission("deathpenalty.bypass.hp"))
-                    if(hpIsPercent)
-                        p.setHealth(Math.max(p.getMaxHealth() * hpPercent, 1));
+                if(cm.setHp && !p.hasPermission("deathpenalty.bypass.hp"))
+                    if(cm.hpIsPercent)
+                        p.setHealth(Math.max(p.getMaxHealth() * cm.hpPercent, 1));
                     else
-                        p.setHealth(Math.min(hp, p.getMaxHealth()));
-                if(setFood && !p.hasPermission("deathpenalty.bypass.food"))
+                        p.setHealth(Math.min(cm.hp, p.getMaxHealth()));
+                if(cm.setFood && !p.hasPermission("deathpenalty.bypass.food"))
                 {
                     p.setSaturation(0f);
-                    p.setFoodLevel(food);
+                    p.setFoodLevel(cm.food);
                 }
-                if(setXp && !p.hasPermission("deathpenalty.bypass.xp"))
+                if(cm.setXp && !p.hasPermission("deathpenalty.bypass.xp"))
                 {
-                    p.setTotalExperience((int) (p.getTotalExperience() * xpPercent));
-                    p.setLevel((int) (p.getLevel() * xpPercent));
+                    p.setTotalExperience((int) (p.getTotalExperience() * cm.xpPercent));
+                    p.setLevel((int) (p.getLevel() * cm.xpPercent));
                 }
-                if(setMoney && EconomyManager.available && !p.hasPermission("deathpenalty.bypass.money"))
-                    EconomyManager.setBalance(p, EconomyManager.getBalance(p) * moneyPercent);
+                if(cm.setMoney && EconomyManager.available && !p.hasPermission("deathpenalty.bypass.money"))
+                    EconomyManager.setBalance(p, EconomyManager.getBalance(p) * cm.moneyPercent);
             }
         });
     }

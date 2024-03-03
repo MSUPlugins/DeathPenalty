@@ -5,24 +5,24 @@ hp:
   # Deduct HP after respawn
   enabled: true
   # The amount or percentage(add a % after the value) of HP retained
-  # The percentage must be between 1% and 100%, and the amount must be positive
-  setTo: "10"
+  # Positive integer or string representation between "1%" and "100%"
+  setTo: "50%"
 
 food:
   # Deduct food level after respawn
   enabled: true
-  # The amount of food level retained. Must be between 0 and 20
+  # The amount of food level retained. Must be integer between 0 and 20
   setTo: 10
 
 xp:
   # Deduct XP and level after respawn
   # Will not work if gamerule keepInventory is false
-  enabled: true
-  # The percentage of XP and level retained. Must be between 0 and 100
+  enabled: false
+  # The percentage of XP and level retained. Must be integer between 0 and 100
   setToPercent: 50
 
 money:
   # Deduct money after respawn. Requires Vault and an economy plugin
-  enabled: true
+  enabled: false
   # The percentage of money retained. Must be between 0 and 100
-  setToPercent: 90
+  setToPercent: 95

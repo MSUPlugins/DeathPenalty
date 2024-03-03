@@ -8,29 +8,23 @@ public class DeathPenalty extends JavaPlugin
 {
     static DeathPenalty instance;
     static Logger log;
+    static DPConfigManager cm;
 
     @Override
     public void onEnable()
     {
         instance = this;
         log = getLogger();
-        try
-        {
-            ConfigManager.initialize();
-            getServer().getPluginManager().registerEvents(new RespawnEventListener(), this);
-            log.info("DeathPenalty is ready");
-        }
-        catch(Exception e)
-        {
-            log.severe("Failed to initialize DeathPenalty");
-            e.printStackTrace();
-            getServer().getPluginManager().disablePlugin(this);
-        }
+        cm = new DPConfigManager(this, 1).initialize();
+
+        getServer().getPluginManager().registerEvents(new RespawnEventListener(), this);
+
+        log.info("DeathPenalty loaded");
     }
 
     @Override
     public void onDisable()
     {
-        // nothing to do
+        log.info("DeathPenalty is being disabled");
     }
 }
